@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantity</title>
+    <style>
+         button{
+        border: none;
+        background-color: rgb(162, 117, 222);
+        color: black;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: 800px;
+        font-size: large;
+        }
+        div{
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Cart Quantity:</h1>
+    </div>
+    <div>
+        <button onclick="console.log(`cart quantity: ${cartQuantity}`)">Show quantity</button>
+        <button onclick="
+        cartQuantity = cartQuantity + 1
+        console.log(`cartQuantity:${cartQuantity}`)
+        ">Add to Cart</button>
+        
+        <button onclick="
+        cartQuantity = cartQuantity + 2
+        console.log(`cartQuantity:${cartQuantity}`)
+        ">+2</button>
+        <button onclick="
+        cartQuantity = cartQuantity + 3
+        console.log(`cartQuantity:${cartQuantity}`)
+        ">+3</button>
+        <button onclick="
+        cartQuantity = 0;
+        console.log(`cart quantity:${cartQuantity}`)
+        ">Reset</button>
+    </div>
+    <div>
+        
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            background-color: antiquewhite;
+            padding: 50px;
+            width: 10px;
+            font-weight: 800px;
+            font-size: 40px;
+            font:bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Event</h1>
+    <div class="container">
+        <div class="card" >1</div>
+    </div>
+    <script>
+        const e = document.querySelector('.container')
+        const b = document.querySelector('.card')
+        let i = 0
+        function clickEvent() {
+            if(i === 0){
+                b.style.backgroundColor = 'black';
+                b.innerText = 'hi'
+                console.log('hi')
+                i=1
+            }else{
+                b.style.backgroundColor = '';
+                b.innerText='bye'
+                console.log('bye')
+                i =0
+            }
+        }
+        b.addEventListener('click', clickEvent)
+    </script>
+</body>
+</html>

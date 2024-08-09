@@ -1,5 +1,14 @@
-const score = JSON.parse(localStorage.getItem('score'))
+let score = JSON.parse(localStorage.getItem('score'))
 
+if(score === null){
+    score ={
+        wins : 0,
+        losses : 0,
+        ties : 0
+    }
+}
+// document.querySelector('.showScore').innerHTML = `wins: ${score.wins} \n losses:${score.losses} \n ties:${score.ties}`
+updateScore()
 function playerMove(move){
     let result =''
     const computerMove = game()
@@ -39,9 +48,16 @@ function playerMove(move){
     score.ties +=1
    }
    localStorage.setItem('score', JSON.stringify(score))
+//    document.querySelector('.showScore').innerHTML = `wins: ${score.wins} \n losses:${score.losses} \n ties:${score.ties}`
+document.querySelector('.result').innerHTML = result
+document.querySelector('.pick').innerHTML = `you pick ${move}, computer pick ${computerMove}`
+updateScore()
 
-    alert(`you pick ${move}, computer pick ${computerMove}. ${result}. \n wins: ${score.wins} \n losses:${score.losses} \n ties:${score.ties}`)
+    // alert(`you pick ${move}, computer pick ${computerMove}. ${result}. \n wins: ${score.wins} \n losses:${score.losses} \n ties:${score.ties}`)
 
+  }
+  function updateScore(){
+    document.querySelector('.showScore').innerHTML = `wins: ${score.wins} \n losses:${score.losses} \n ties:${score.ties}`
   }
 
 

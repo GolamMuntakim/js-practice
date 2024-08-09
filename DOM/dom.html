@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Manupulation</title>
+    <style>
+        .container{
+            color:green;
+            display: flex;
+            flex-wrap: wrap;
+            gap:8px;
+        }
+        .card{
+            width: 70px;
+            height: 80px;
+            background-color: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+     <p>Youtube subscribe button</p>  
+     <button class="subs" onclick="subscribe()">subscribe</button>
+     <h1>Hello world</h1>
+     <h1 class="append">appendChild and append</h1>
+     <div class="container">
+        <div class="card">
+            1
+        </div>
+     </div>
+    </div>
+    <script>
+        function subscribe(){
+            const subscribeButton = document.querySelector('.subs');
+    if(subscribeButton.innerText === 'subscribe'){
+        subscribeButton.innerHTML = 'subscribed'
+        subscribeButton.style.backgroundColor = 'black'
+        subscribeButton.style.color = 'white'
+    }else{
+        subscribeButton.innerHTML = 'subscribe'
+        subscribeButton.style.backgroundColor = ''
+        subscribeButton.style.color = ''
+    }
+        }
+
+        const h1 = document.querySelector('.append')
+        const container = document.querySelector('.container')
+        const card = document.querySelector('.card')
+       
+        // container.appendChild(h1.cloneNode(true))
+        for(let i =2 ; i<=10 ; i++){
+           newCard = card.cloneNode()
+           newCard.innerText = i
+           container.appendChild(newCard)
+           console.log(newCard)
+        }
+
+        const newTag = document.createElement('h1');
+        container.append(newTag)
+        newTag.innerText = 'hello'
+       
+
+        // delete event 
+        const num = document.querySelector('body > div > div > div:nth-child(3)')
+        num.remove()
+
+  
+    </script>
+</body>
+</html>

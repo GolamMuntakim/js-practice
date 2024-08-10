@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            gap:8px;
+            flex-wrap: wrap;
+        }
+        .card{
+            width:40px;
+            height: 50px;
+            padding: 10px;
+            font-size: 50px;
+            border-radius: 20%;
+            justify-self: center;
+            background-color: black;
+            color: whitesmoke;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 draggable="true">Adding Event Listener</h1>
+    <div class="container">
+        <div class="card">+</div>
+    </div>
+
+    <script>
+        const h1 = document.querySelector('h1');
+        const card = document.querySelector('.card');
+        const container = document.querySelector('.container')
+        let count = 0;
+        card.addEventListener('mousemove',(e)=>{
+            console.log(e)
+            const newCard = document.createElement('div')
+            newCard.classList.add('card');
+            newCard.innerText = count++
+            container.append(newCard)
+        })
+       
+    </script>
+</body>
+</html>

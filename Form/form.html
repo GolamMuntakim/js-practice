@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Add Form</h1>
+    <p>Hi</p>
+    <form action="/search">
+        <input type="text" id="username" name="text">
+    <button>clicl me</button>
+    </form>
+    <script>
+        const input = document.querySelector('form')
+        const para = document.querySelector('p')
+        input.addEventListener('submit',(event)=>{
+            event.preventDefault()
+            const newFormDataw = new FormData(input)
+            for(const p of newFormDataw.entries()){
+                event.preventDefault()
+            }
+            console.log(newFormDataw)
+       
+        })
+    </script>
+</body>
+</html>

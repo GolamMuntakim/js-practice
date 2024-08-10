@@ -1,44 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .card{
+        .container{
+            width: 100%;
+            display: flex;
+            gap: 4px;
+        }
+        .card {
+            display: flex;
             background-color: antiquewhite;
             padding: 50px;
             width: 10px;
             font-weight: 800px;
             font-size: 40px;
-            font:bold;
+            font: bold;
             color: green;
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
     <h1>Add Event</h1>
     <div class="container">
-        <div class="card" >1</div>
+        <div class="card">+</div>
     </div>
     <script>
-        const e = document.querySelector('.container')
-        const b = document.querySelector('.card')
-        let i = 0
-        function clickEvent() {
-            if(i === 0){
-                b.style.backgroundColor = 'black';
-                b.innerText = 'hi'
-                console.log('hi')
-                i=1
-            }else{
-                b.style.backgroundColor = '';
-                b.innerText='bye'
-                console.log('bye')
-                i =0
-            }
-        }
-        b.addEventListener('click', clickEvent)
+        const container = document.querySelector('.container')
+        const card = document.querySelector('.card')
+        const c = document.querySelector('body')
+        let i = 1
+        card.addEventListener('click', () => {
+            const newCard = document.createElement('div')
+            newCard.classList.add('card')
+            container.append(newCard)
+            newCard.innerText = i++
+            
+            // console.log(newCard)
+        })
+
+      
     </script>
 </body>
+
 </html>

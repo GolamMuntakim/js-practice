@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .green{
+            width:400px;
+            height:300px;
+            background-color: green;
+        }
+        .pink{
+            width:300px;
+            height:200px;
+            background-color: pink;
+        }
+        .blue{
+            width:200px;
+            height:100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="green">
+        <div class="pink">
+            <div class="blue"></div>
+        </div>
+    </div>
+
+    <script>
+        const green = document.querySelector('.green');
+        const pink = document.querySelector('.pink');
+        const blue = document.querySelector('.blue');
+        green.addEventListener('click',()=>{
+            console.log('green event listener')
+        },true)
+        pink.addEventListener('click',()=>{
+            console.log('pink event listener')
+        },true)
+        blue.addEventListener('click',()=>{
+            event.stopPropagation()
+            console.log('blue event listener')
+        },true)
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: #DECDAC;
+            font-family:serif;
+        }
+
+        .popup{
+            width: 500px;
+            height: 300px;
+            background-color: white;
+            border-radius: 16px;
+            position: fixed;
+            inset: 0;
+            margin: auto;
+            box-shadow: 0 5px 4px 2px rgba(0,0,0,0.3);
+            padding: 8px;
+            transition :transform 0.2s ease-in-out;
+            transform: scale(0);
+        }
+       
+        .close{
+            font-size: 48px;
+            font-weight: 700;
+            position: absolute;
+            right: 16px;
+            cursor: pointer;
+        }
+       
+    </style>
+</head>
+<body >
+   <div class="pop-cotainer">
+    <button class="openpopup">Open popup</button>
+    <div class="popup open">
+        <div>
+            <div class="close">&times;</div>
+        <h2>Don't miss out</h2>
+        <p>sign up for our newsletter to stay in the loop</p>
+        </div>
+    </div>
+   </div>
+    <script>
+        const openpopup = document.querySelector('.openpopup')
+        const popup = document.querySelector('.popup')
+        // const body = document.querySelector('body')
+    
+      
+        openpopup.addEventListener('click', ()=>{
+            popup.style.transform = 'scale(1)'
+            // body.style.backgroundColor = 'rgba(100, 100, 100, 0.5)'
+           
+        })
+        const colsepopup = document.querySelector('.close')
+        // const body = document.querySelector('.pop-cotainer')
+      
+        colsepopup.addEventListener('click', ()=>{
+            popup.style.transform = 'scale(0)'
+            //  body.style.backgroundColor = ''
+        })
+      
+        // body.addEventListener('click', ()=>{
+        //     popup.style.transform = 'scale(0)'
+        // })
+    </script>
+</body>
+</html>

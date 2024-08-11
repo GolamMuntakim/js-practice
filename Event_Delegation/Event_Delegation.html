@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            
+            width: 100%;
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap
+        }
+        .card {
+            display: flex;
+            background-color: antiquewhite;
+            padding: 50px;
+            width: 10px;
+            font-weight: 800px;
+            font-size: 40px;
+            font: bold;
+            color: green;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Add Event</h1>
+    <div class="container">
+        
+    </div>
+    <div class="card">+</div>
+    <script>
+        const container = document.querySelector('.container')
+        const card = document.querySelector('.card')
+        const c = document.querySelector('body')
+        let i = 1
+        card.addEventListener('click', () => {
+            const newCard = document.createElement('div')
+            newCard.classList.add('card')
+            container.append(newCard)
+            newCard.innerText = i++;
+           
+        })
+        container.addEventListener('click',(e)=>{
+               if(e.target !== container){
+                e.target.remove()
+               }
+            })
+        // intervalId = setInterval(()=>{
+        //     if(i > 1000){
+        //         clearInterval(intervalId)
+        //     }
+        //     card.click()
+        // },100)
+        // for(let i = 1 ; i<=1000 ; i++){
+        //     const newCard = document.createElement('div')
+        //     newCard.classList.add('card')
+        //     container.append(newCard)
+        //     newCard.innerText = i++;
+        //     card.click()
+           
+        // }
+        // setInterval(()=>{
+        //     for(let i = 1 ; i<=1000 ; i++){
+        //     const newCard = document.createElement('div')
+        //     newCard.classList.add('card')
+        //     container.append(newCard)
+        //     newCard.innerText = i++;
+        //     card.click()
+           
+        // }
+        // },100)
+
+      
+    </script>
+</body>
+
+</html>

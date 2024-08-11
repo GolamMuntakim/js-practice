@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Local Storage</h1>
+    <h1>My Name is <span class="name-tag"></span></h1>
+    <input type="text" class="name">
+    <script>
+        const nameTag = document.querySelector('.name-tag')
+        const input = document.querySelector('.name')
+        // nameTag.innerText = localStorage.myName
+        nameTag.innerText = localStorage.getItem('myName')
+        input.addEventListener('input', (e)=>{
+            // localStorage.myName = e.target.value
+            localStorage.setItem('myName', e.target.value)
+            nameTag.innerText = localStorage.myName
+            console.log(e.target.value)
+        })
+    </script>
+</body>
+</html>

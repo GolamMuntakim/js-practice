@@ -10,6 +10,7 @@
             width: 100%;
             display: flex;
             gap: 4px;
+            flex-wrap: wrap
         }
         .card {
             display: flex;
@@ -40,9 +41,31 @@
             newCard.classList.add('card')
             container.append(newCard)
             newCard.innerText = i++
-            
-            // console.log(newCard)
         })
+        // intervalId = setInterval(()=>{
+        //     if(i > 1000){
+        //         clearInterval(intervalId)
+        //     }
+        //     card.click()
+        // },100)
+        // for(let i = 1 ; i<=1000 ; i++){
+        //     const newCard = document.createElement('div')
+        //     newCard.classList.add('card')
+        //     container.append(newCard)
+        //     newCard.innerText = i++;
+        //     card.click()
+           
+        // }
+        // setInterval(()=>{
+        //     for(let i = 1 ; i<=1000 ; i++){
+        //     const newCard = document.createElement('div')
+        //     newCard.classList.add('card')
+        //     container.append(newCard)
+        //     newCard.innerText = i++;
+        //     card.click()
+           
+        // }
+        // },100)
 
       
     </script>

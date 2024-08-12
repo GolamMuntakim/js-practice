@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Focus on today</title>
     <style>
-        body{
+        body {
             background-color: antiquewhite;
             margin: 0;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
-        .focus{
+
+        .focus {
             color: green;
         }
-        .main{
-           height: 100%;
-           width: 100%;
+
+        .main {
+            height: 100%;
+            width: 100%;
         }
-        h1{
+
+        h1 {
             text-align: center;
             padding-top: 10px;
         }
-        .container{
+
+        .container {
             background-color: white;
             height: 400px;
             padding: 20px;
@@ -30,37 +35,42 @@
             margin-top: 10px;
             border-radius: 30px;
         }
-        .progress-bar{
+
+        .progress-bar {
             height: 30px;
-            background-color: rgba(72,163,0,0.1);
+            background-color: rgba(72, 163, 0, 0.1);
             border-radius: 15px;
         }
-        .progress-value{
+
+        .progress-value {
             height: 30px;
             width: 30%;
             background-color: #48A300;
             border-radius: 15px;
             font-size: 10px;
-            font-weight: 500; 
+            font-weight: 500;
             display: flex;
             align-items: center;
             /* justify-content: center; */
             color: white;
             /* padding-left: 15px; */
-             width: 0px;
-             overflow: hidden;
+            width: 0px;
+            overflow: hidden;
         }
-        .progress-value span{
+
+        .progress-value span {
             padding-left: 15px;
         }
-        .error-label{
+
+        .error-label {
             color: red;
             font-size: 14px;
             display: none;
-           
+
         }
-        .goal-container{
-            border: 1px solid rgba(0,0,0,0.1);
+
+        .goal-container {
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 17px;
             height: 26px;
             display: flex;
@@ -69,99 +79,128 @@
             padding: 10px;
             background-color: #fff;
             flex-grow: 1;
-            
+
         }
-        .checkbox{
+
+        .checkbox {
             width: 24px;
             height: 24px;
-            border: 2px solid rgba(97,72,28,0.3);
+            border: 2px solid rgba(97, 72, 28, 0.3);
             border-radius: 50%;
             flex-shrink: 0;
             cursor: pointer;
         }
-        .goal-input{
+
+        .goal-input {
             margin-left: 22px;
             border: none;
             outline: none;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             width: 100%;
         }
-        .goal-input::placeholder{
+
+        .goal-input::placeholder {
             color: #D9D9D9;
         }
-        .move{
+
+        .move {
             text-align: center;
             font-weight: 500;
             font-size: 16px;
-            font:  bold;
+            font: bold;
         }
-        .completed .checkbox{
+
+        .completed .checkbox  {
             background-color: #48A300;
             border-color: #48A300;
+           
         }
-        .input-text{
-            color:#48A300;
+
+        .completed {
+            color: #48A300;
+            
             text-decoration: line-through;
         }
     </style>
 </head>
+
 <body>
     <div class="main">
         <h1><span class="focus">Focus on </span>Today</h1>
         <div class="container">
-           <div>
-            <h3>Today</h3>
-            <small>Raise the bar by complete your goals</small>
-            <br>
-            <br>
-            <div class="progress-bar">
-                <div class="progress-value">
-                    <span>2/3 completed</span>
+            <div>
+                <h3>Today</h3>
+                <small>Raise the bar by complete your goals</small>
+                <br>
+                <br>
+                <div class="progress-bar">
+                    <div class="progress-value">
+                        <span>2/3 completed</span>
+                    </div>
                 </div>
+                <small class="error-label">please set all 3 goals</small>
+                <div class="goal-container ">
+                    <div class="checkbox"></div>
+                    <input id="first" class="goal-input " type="text" placeholder="add here your goals...">
+                </div>
+                <div class="goal-container ">
+                    <div class="checkbox"></div>
+                    <input id="second" class="goal-input" type="text" placeholder="add here your goals...">
+                </div>
+                <div class="goal-container ">
+                    <div class="checkbox"></div>
+                    <input id="third" class="goal-input" type="text" placeholder="add here your goals...">
+                </div>
+                <p class="move">"Move One step ahead today"</p>
             </div>
-            <small class="error-label">please set all 3 goals</small>
-            <div class="goal-container ">
-                <div class="checkbox"></div>
-                <input class="goal-input " type="text" placeholder="add here your goals...">
-            </div>
-            <div class="goal-container ">
-                <div class="checkbox"></div>
-                <input class="goal-input" type="text" placeholder="add here your goals...">
-            </div>
-            <div class="goal-container ">
-                <div class="checkbox"></div>
-                <input class="goal-input" type="text" placeholder="add here your goals...">
-            </div>
-            <p class="move">"Move One step ahead today"</p>
-           </div>
         </div>
     </div>
     <script>
         const checkboxList = document.querySelectorAll('.checkbox')
         const allInput = document.querySelectorAll('.goal-input')
         const error = document.querySelector('.error-label')
-        const progressvalue=document.querySelector('.progress-value')
-        checkboxList.forEach((checkbox)=>{
-            checkbox.addEventListener('click',(e)=>{
-                const allField = [...allInput].every((input)=>{
+        const progressvalue = document.querySelector('.progress-value')
+        const allGoals = JSON.parse(localStorage.getItem('allGoals')) || {}
+        checkboxList.forEach((checkbox) => {
+            checkbox.addEventListener('click', (e) => {
+                const allField = [...allInput].every((input) => {
                     return input.value
                 })
                 console.log(allField)
-            if(allField){
-                checkbox.parentElement.classList.toggle('completed')
-                // allInput.classList.add('input-text')
-                progressvalue.style.width='33.33%'
-            }else{
-                error.style.display='flex'
-            }
-        })
-        })
-        allInput.forEach((input)=>{
-            input.addEventListener('focus',()=>{
-                error.style.display="none"
+                if (allField) {
+                    checkbox.parentElement.classList.toggle('completed')
+                    // progressvalue.style.width = '33.33%'
+                    const inputId = checkbox.nextElementSibling.id
+                    console.log(allGoals[inputId])
+                    allGoals[inputId].completed = !allGoals[inputId].completed
+                    localStorage.setItem('allGoals', JSON.stringify(allGoals))
+                } else {
+                    error.style.display = 'flex'
+                }
             })
         })
-     
+        allInput.forEach((input) => {
+            // console.log(allGoals[input.id])
+            input.value = allGoals[input.id].name
+
+            if(allGoals[input.id].completed){
+                input.parentElement.classList.add('completed')
+            }
+
+            input.addEventListener('focus', () => {
+                error.style.display = "none"
+            })
+            input.addEventListener('input', (e)=>{
+                allGoals[input.id] = {
+                    name: input.value,
+                    completed:false
+                }
+                localStorage.setItem('allGoals', JSON.stringify(allGoals))
+                console.log(allGoals)
+            })
+        })
+
     </script>
 </body>
+
 </html>

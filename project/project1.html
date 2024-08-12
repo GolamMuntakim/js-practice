@@ -23,7 +23,7 @@
         }
         .container{
             background-color: white;
-            height: 500px;
+            height: 400px;
             padding: 20px;
             width: 500px;
             margin: auto;
@@ -40,6 +40,53 @@
             width: 30%;
             background-color: #48A300;
             border-radius: 15px;
+            font-size: 10px;
+            font-weight: 500; 
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+            color: white;
+            padding-left: 15px;
+        }
+        .error-label{
+            color: red;
+            font-size: 14px;
+        }
+        .goal-container{
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 17px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            flex-grow: 1;
+            
+        }
+        .checkbox{
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(97,72,28,0.3);
+            border-radius: 50%;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .goal-input{
+            margin-left: 22px;
+            border: none;
+            outline: none;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            width: 100%;
+        }
+        .goal-input::placeholder{
+            color: #D9D9D9;
+        }
+        .move{
+            text-align: center;
+            font-weight: 500;
+            font-size: 16px;
+            font:  bold;
         }
     </style>
 </head>
@@ -53,8 +100,22 @@
             <br>
             <br>
             <div class="progress-bar">
-                <div class="progress-value"></div>
+                <div class="progress-value">2/3 completed</div>
             </div>
+            <small class="error-label">please set all 3 goals</small>
+            <div class="goal-container">
+                <div class="checkbox"></div>
+                <input class="goal-input" type="text" placeholder="add here your goals...">
+            </div>
+            <div class="goal-container">
+                <div class="checkbox"></div>
+                <input class="goal-input" type="text" placeholder="add here your goals...">
+            </div>
+            <div class="goal-container">
+                <div class="checkbox"></div>
+                <input class="goal-input" type="text" placeholder="add here your goals...">
+            </div>
+            <p class="move">"Move One step ahead today"</p>
            </div>
         </div>
     </div>

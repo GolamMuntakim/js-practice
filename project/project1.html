@@ -51,6 +51,8 @@
         .error-label{
             color: red;
             font-size: 14px;
+            display: none;
+           
         }
         .goal-container{
             border: 1px solid rgba(0,0,0,0.1);
@@ -88,6 +90,14 @@
             font-size: 16px;
             font:  bold;
         }
+        .completed .checkbox{
+            background-color: #48A300;
+            border-color: #48A300;
+        }
+        .input-text{
+            color:#48A300;
+            text-decoration: line-through;
+        }
     </style>
 </head>
 <body>
@@ -103,15 +113,15 @@
                 <div class="progress-value">2/3 completed</div>
             </div>
             <small class="error-label">please set all 3 goals</small>
-            <div class="goal-container">
+            <div class="goal-container ">
+                <div class="checkbox"></div>
+                <input class="goal-input " type="text" placeholder="add here your goals...">
+            </div>
+            <div class="goal-container ">
                 <div class="checkbox"></div>
                 <input class="goal-input" type="text" placeholder="add here your goals...">
             </div>
-            <div class="goal-container">
-                <div class="checkbox"></div>
-                <input class="goal-input" type="text" placeholder="add here your goals...">
-            </div>
-            <div class="goal-container">
+            <div class="goal-container ">
                 <div class="checkbox"></div>
                 <input class="goal-input" type="text" placeholder="add here your goals...">
             </div>
@@ -120,7 +130,24 @@
         </div>
     </div>
     <script>
-
+        const checkboxList = document.querySelectorAll('.checkbox')
+        const allInput = document.querySelectorAll('.goal-input')
+        const error = document.querySelector('.error-label')
+        checkboxList.forEach((checkbox)=>{
+            checkbox.addEventListener('click',(e)=>{
+                const allField = [...allInput].every((input)=>{
+                    return input.value
+                })
+                console.log(allField)
+            if(allField){
+                checkbox.parentElement.classList.toggle('completed')
+                allInput.classList.add('input-text')
+            }else{
+                error.style.display='flex'
+            }
+        })
+        })
+     
     </script>
 </body>
 </html>

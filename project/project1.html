@@ -46,6 +46,11 @@
             align-items: center;
             /* justify-content: center; */
             color: white;
+            /* padding-left: 15px; */
+             width: 0px;
+             overflow: hidden;
+        }
+        .progress-value span{
             padding-left: 15px;
         }
         .error-label{
@@ -110,7 +115,9 @@
             <br>
             <br>
             <div class="progress-bar">
-                <div class="progress-value">2/3 completed</div>
+                <div class="progress-value">
+                    <span>2/3 completed</span>
+                </div>
             </div>
             <small class="error-label">please set all 3 goals</small>
             <div class="goal-container ">
@@ -133,6 +140,7 @@
         const checkboxList = document.querySelectorAll('.checkbox')
         const allInput = document.querySelectorAll('.goal-input')
         const error = document.querySelector('.error-label')
+        const progressvalue=document.querySelector('.progress-value')
         checkboxList.forEach((checkbox)=>{
             checkbox.addEventListener('click',(e)=>{
                 const allField = [...allInput].every((input)=>{
@@ -141,11 +149,17 @@
                 console.log(allField)
             if(allField){
                 checkbox.parentElement.classList.toggle('completed')
-                allInput.classList.add('input-text')
+                // allInput.classList.add('input-text')
+                progressvalue.style.width='33.33%'
             }else{
                 error.style.display='flex'
             }
         })
+        })
+        allInput.forEach((input)=>{
+            input.addEventListener('focus',()=>{
+                error.style.display="none"
+            })
         })
      
     </script>

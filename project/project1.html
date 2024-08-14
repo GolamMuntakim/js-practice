@@ -51,11 +51,10 @@
             font-weight: 500;
             display: flex;
             align-items: center;
-            /* justify-content: center; */
             color: white;
-            /* padding-left: 15px; */
             width: 0px;
             overflow: hidden;
+            transition: width 0.2s ease-in-out;
         }
 
         .progress-value span {
@@ -130,7 +129,7 @@
         <div class="container">
             <div>
                 <h3>Today</h3>
-                <small>Raise the bar by complete your goals</small>
+                <small class="small"></small>
                 <br>
                 <br>
                 <div class="progress-bar">
@@ -156,11 +155,27 @@
         </div>
     </div>
     <script>
+             const allQuotes = [
+            'Raise the bar by complete your goals',
+            'Well begun is half then',
+            'just a step away, keep going',
+            'Whao! you have completed all the goals'
+        ]
         const checkboxList = document.querySelectorAll('.checkbox')
+        const small = document.querySelector('.small')
         const allInput = document.querySelectorAll('.goal-input')
         const error = document.querySelector('.error-label')
         const progressvalue = document.querySelector('.progress-value')
         const allGoals = JSON.parse(localStorage.getItem('allGoals')) || {}
+        let completedGoalsCount = Object.values(allGoals).filter((goal)=> goal.completed).length
+        progressvalue.style.width = `${(completedGoalsCount/3) * 100}%`
+        progressvalue.firstElementChild.innerText = `${completedGoalsCount}/3 completed`
+        small.innerText = allQuotes[completedGoalsCount]
+   
+        // if(completedGoalsCount = 0){
+        //     small.innerText = allQuotes[0]
+        // }
+
         checkboxList.forEach((checkbox) => {
             checkbox.addEventListener('click', (e) => {
                 const allField = [...allInput].every((input) => {
@@ -169,10 +184,13 @@
                 console.log(allField)
                 if (allField) {
                     checkbox.parentElement.classList.toggle('completed')
-                    // progressvalue.style.width = '33.33%'
                     const inputId = checkbox.nextElementSibling.id
                     console.log(allGoals[inputId])
                     allGoals[inputId].completed = !allGoals[inputId].completed
+                    completedGoalsCount = Object.values(allGoals).filter((goal)=> goal.completed).length
+                    progressvalue.style.width = `${(completedGoalsCount/3) * 100}%`
+                    progressvalue.firstElementChild.innerText = `${completedGoalsCount}/3 completed`
+                    small.innerText = allQuotes[completedGoalsCount]
                     localStorage.setItem('allGoals', JSON.stringify(allGoals))
                 } else {
                     error.style.display = 'flex'
@@ -191,6 +209,10 @@
                 error.style.display = "none"
             })
             input.addEventListener('input', (e)=>{
+                if(allGoals[input.id].completed){
+                    input.value = allGoals[input.id].name
+                    return
+                }
                 allGoals[input.id] = {
                     name: input.value,
                     completed:false

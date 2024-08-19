@@ -46,9 +46,24 @@
         // })
 
         const fruits = ['banana', 'apple', 'peach', 'mango', 'grapes']
-        fruits.forEach((value)=>{
-            console.log(value)
-        })
+        const persons = {
+            firstName : 'john',
+            secondName : 'Doe',
+            age : 50,
+            eyeColor : 'blue',
+            city : 'Banglore'
+        }
+        for(const person in persons){
+            console.log(persons[person])
+        }
+
+        // fruits.map((fruit)=>{
+        //     console.log(fruit.toUpperCase())
+        //     return fruit.toUpperCase();
+        // })
+        // fruits.forEach((value)=>{
+        //     console.log(value)
+        // })
         // fruits.forEach(function(value){
         //     console.log(value)
         // })

@@ -64,20 +64,30 @@
 
 
 
-    const arr1 = [1,2,3]
-    const arr2 = arr1.slice()
-    arr2.push(7)
-    console.log(arr1)
-    console.log(arr2)
-    for(let i = 1; i<=10 ; i++){
-        if(i === 3){
-            continue;
-        }
-        console.log(i)
-        if(i === 8){
-            break;
-        }
-    }
+    // const arr1 = [1,2,3]
+    // const arr2 = arr1.slice()
+    // arr2.push(7)
+    // console.log(arr1)
+    // console.log(arr2)
+    // for(let i = 1; i<=10 ; i++){
+    //     if(i === 3){
+    //         continue;
+    //     }
+    //     console.log(i)
+    //     if(i === 8){
+    //         break;
+    //     }
+    // }
+
+    // let m = 1;
+    // while (m <= 10){
+    //     if(m % 3 === 0){
+    //         m++;
+    //         continue;
+    //     }
+    //     console.log(m)
+     
+    // }
 
     // let i = 0;
     // while(i<=5){
@@ -109,7 +119,18 @@
     //     numDouble.push(  num * 2)
     // }
     // console.log(numDouble)
- 
+  function doubleNumsArray(nums){
+    const doubleNum = []
+    for(let i = 0 ; i<= nums.length ; i++){
+        const num = nums[i]
+        if(num === 0){
+            return doubleNum;
+        }
+         doubleNum.push(num * 2)
+    }
+    return doubleNum
+  }
+  console.log(doubleNumsArray([2,2,5,0,5]))
        
     </script>
 </body>

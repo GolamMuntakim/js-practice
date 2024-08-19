@@ -37,15 +37,21 @@
     //     randomeNumber = Math.random();
     //     console.log(randomeNumber)
     // }
-    const todoList = [
-        "make dinner",
-        "wash dish",
-        "watch youtube"
-    ]
-    for(let index = 0 ; index<= todoList.length - 1 ; index++){
-       const value =  todoList[index]
-        console.log(value)
+    // 
+    
+    const nums = [1,1,3];
+    let total = 0;
+    for(let i = 0 ; i < nums.length ; i++){
+        const num  = nums[i];
+        total = total + num
     }
+    console.log(total)
+    const numDouble = [] ;
+    for(let i = 0; i< nums.length ; i++){
+        const num  = nums[i];
+        numDouble.push(  num * 2)
+    }
+    console.log(numDouble)
  
        
     </script>

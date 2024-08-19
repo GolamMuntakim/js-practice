@@ -109,15 +109,15 @@
             font: bold;
         }
 
-        .completed .checkbox  {
+        .completed .checkbox {
             background-color: #48A300;
             border-color: #48A300;
-           
+
         }
 
         .completed {
             color: #48A300;
-            
+
             text-decoration: line-through;
         }
     </style>
@@ -150,31 +150,34 @@
                     <div class="checkbox"></div>
                     <input id="third" class="goal-input" type="text" placeholder="add here your goals...">
                 </div>
-                <p class="move">"Move One step ahead today"</p>
+                <p class="move"></p>
             </div>
         </div>
     </div>
     <script>
-             const allQuotes = [
+        const allQuotes = [
             'Raise the bar by complete your goals',
             'Well begun is half then',
             'just a step away, keep going',
             'Whao! you have completed all the goals'
         ]
+        const buttomQutoe = [
+            '"Move One step ahead today"',
+            '"Well done keep going"'
+        ]
+        const p = document.querySelector('.p')
         const checkboxList = document.querySelectorAll('.checkbox')
         const small = document.querySelector('.small')
         const allInput = document.querySelectorAll('.goal-input')
         const error = document.querySelector('.error-label')
         const progressvalue = document.querySelector('.progress-value')
         const allGoals = JSON.parse(localStorage.getItem('allGoals')) || {}
-        let completedGoalsCount = Object.values(allGoals).filter((goal)=> goal.completed).length
-        progressvalue.style.width = `${(completedGoalsCount/3) * 100}%`
+        let completedGoalsCount = Object.values(allGoals).filter((goal) => goal.completed).length
+        progressvalue.style.width = `${(completedGoalsCount / 3) * 100}%`
         progressvalue.firstElementChild.innerText = `${completedGoalsCount}/3 completed`
         small.innerText = allQuotes[completedGoalsCount]
-   
-        // if(completedGoalsCount = 0){
-        //     small.innerText = allQuotes[0]
-        // }
+        // p.innerText = buttomQutoe[0]
+
 
         checkboxList.forEach((checkbox) => {
             checkbox.addEventListener('click', (e) => {
@@ -182,13 +185,14 @@
                     return input.value
                 })
                 console.log(allField)
+
                 if (allField) {
                     checkbox.parentElement.classList.toggle('completed')
                     const inputId = checkbox.nextElementSibling.id
                     console.log(allGoals[inputId])
                     allGoals[inputId].completed = !allGoals[inputId].completed
-                    completedGoalsCount = Object.values(allGoals).filter((goal)=> goal.completed).length
-                    progressvalue.style.width = `${(completedGoalsCount/3) * 100}%`
+                    completedGoalsCount = Object.values(allGoals).filter((goal) => goal.completed).length
+                    progressvalue.style.width = `${(completedGoalsCount / 3) * 100}%`
                     progressvalue.firstElementChild.innerText = `${completedGoalsCount}/3 completed`
                     small.innerText = allQuotes[completedGoalsCount]
                     localStorage.setItem('allGoals', JSON.stringify(allGoals))
@@ -201,21 +205,21 @@
             // console.log(allGoals[input.id])
             input.value = allGoals[input.id].name
 
-            if(allGoals[input.id].completed){
+            if (allGoals[input.id].completed) {
                 input.parentElement.classList.add('completed')
             }
 
             input.addEventListener('focus', () => {
                 error.style.display = "none"
             })
-            input.addEventListener('input', (e)=>{
-                if(allGoals[input.id].completed){
+            input.addEventListener('input', (e) => {
+                if (allGoals[input.id].completed) {
                     input.value = allGoals[input.id].name
                     return
                 }
                 allGoals[input.id] = {
                     name: input.value,
-                    completed:false
+                    completed: false
                 }
                 localStorage.setItem('allGoals', JSON.stringify(allGoals))
                 console.log(allGoals)

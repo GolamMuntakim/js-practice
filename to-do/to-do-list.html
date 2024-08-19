@@ -12,14 +12,42 @@
     <button onclick="addTodo()">Add</button>
     <p class="p-text"></p>
     <script>
-        const todoList = []
-        function addTodo(){
-           const inputElement =  document.querySelector(".js-input")
-           const list = document.querySelector(".p-text")
-           const inputValue = inputElement.value 
-           list.innerText = inputValue
-           console.log(inputValue) 
-        }
+        // const todoList = []
+        // function addTodo(){
+        //    const inputElement =  document.querySelector(".js-input")
+        //    const list = document.querySelector(".p-text")
+        //    const inputValue = inputElement.value 
+        // //    list.innerText = inputValue
+        //    todoList.push(inputValue)
+        //    console.log(todoList) 
+        //    inputElement.value = ''
+        // }
+    // let i = 0;
+    // while(i<=5){
+    //     i = i + 1;
+    //     console.log(i)
+    // }
+
+    // for(let i = 1 ; i <= 5 ; i++){
+    //     console.log(i)
+    // }
+
+    // let randomeNumber = 0;
+    // while(randomeNumber < 0.5){
+    //     randomeNumber = Math.random();
+    //     console.log(randomeNumber)
+    // }
+    const todoList = [
+        "make dinner",
+        "wash dish",
+        "watch youtube"
+    ]
+    for(let index = 0 ; index<= todoList.length - 1 ; index++){
+       const value =  todoList[index]
+        console.log(value)
+    }
+ 
+       
     </script>
 </body>
 </html>

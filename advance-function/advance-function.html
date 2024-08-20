@@ -94,24 +94,46 @@
         //     })
         //     console.log(captialMonth)
 
-        const newMonth = ['january', 'february', 'May']
-        const mm = newMonth.filter((month) => {
-            return month.length >= 5;
-        })
-        console.log(mm)
+    //     const newMonth = ['january', 'february', 'May']
+    //     const mm = newMonth.filter((month) => {
+    //         return month.length >= 5;
+    //     })
+    //     console.log(mm)
 
-        const students = [
-            {name : 'siam',age : 24 },
-            {name : 'arman' , age: 18},
-            {name : 'soykot' , age : 21},
-            {name : 'emon', age : 17}
-        ]
-    const adultStudent = students.filter((student)=>{
-        if(student.age >= 20){
-            return student
+    //     const students = [
+    //         {name : 'siam',age : 24 },
+    //         {name : 'arman' , age: 18},
+    //         {name : 'soykot' , age : 21},
+    //         {name : 'emon', age : 17}
+    //     ]
+    // const adultStudent = students.filter((student)=>{
+    //     if(student.age >= 20){
+    //         return student
+    //     }
+    // })
+    // console.log(adultStudent)
+
+
+
+    // const nums = [1,1,2,1,1,1]
+    // nums.reduce((acc , current)=>{
+    //     console.log(current)
+    // },44)
+
+    function parent(){
+        const a = 1;
+        const b = 2;
+        function add(){
+            const total = a + b;
         }
-    })
-    console.log(adultStudent)
+        return add()
+      
+    }
+    // const total = parent
+    console.dir(parent())
+
+    
+
     </script>
 </body>
 

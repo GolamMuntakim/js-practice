@@ -94,53 +94,70 @@
         //     })
         //     console.log(captialMonth)
 
-    //     const newMonth = ['january', 'february', 'May']
-    //     const mm = newMonth.filter((month) => {
-    //         return month.length >= 5;
-    //     })
-    //     console.log(mm)
+        //     const newMonth = ['january', 'february', 'May']
+        //     const mm = newMonth.filter((month) => {
+        //         return month.length >= 5;
+        //     })
+        //     console.log(mm)
 
-    //     const students = [
-    //         {name : 'siam',age : 24 },
-    //         {name : 'arman' , age: 18},
-    //         {name : 'soykot' , age : 21},
-    //         {name : 'emon', age : 17}
-    //     ]
-    // const adultStudent = students.filter((student)=>{
-    //     if(student.age >= 20){
-    //         return student
-    //     }
-    // })
-    // console.log(adultStudent)
+        //     const students = [
+        //         {name : 'siam',age : 24 },
+        //         {name : 'arman' , age: 18},
+        //         {name : 'soykot' , age : 21},
+        //         {name : 'emon', age : 17}
+        //     ]
+        // const adultStudent = students.filter((student)=>{
+        //     if(student.age >= 20){
+        //         return student
+        //     }
+        // })
+        // console.log(adultStudent)
 
 
 
-    // const nums = [1,1,2,1,1,1]
-    // nums.reduce((acc , current)=>{
-    //     console.log(current)
-    // },44)
+        // const nums = [1,1,2,1,1,1]
+        // nums.reduce((acc , current)=>{
+        //     console.log(current)
+        // },44)
 
-    // function parent(){
-    //     const a = 1;
-    //     const b = 2;
-    //     function add(){
-    //         const total = a + b;
-    //     }
-    //     return add()
-      
-    // }
-    // console.dir(parent())
+        // function parent(){
+        //     const a = 1;
+        //     const b = 2;
+        //     function add(){
+        //         const total = a + b;
+        //     }
+        //     return add()
 
-    
-// const maths = {
-//     e : 2129454545,
-//     f : function add(a,b){
-//         return a+b
-//     }
-// }
-const nums = [1,2,3,4,5]
-const nums2 = [6,7,8,9,10]
-const num = [...nums , ...nums2]
+        // }
+        // console.dir(parent())
+
+
+        // const maths = {
+        //     e : 2129454545,
+        //     f : function add(a,b){
+        //         return a+b
+        //     }
+        // }
+        // const nums = [1, 2, 3, 4, 5]
+        // const nums2 = [6, 7, 8, 9, 10]
+        // const num = [...nums, ...nums2]
+
+        // function add(){
+        //     const arr = [1,2,3]
+        //     let sum = 0;
+        //     for(let i = 0 ; i< arr.length ; i++){
+        //         sum = sum + arr[i];
+        //     }
+        //     return sum; 
+        // }
+        // const result = add()
+        // console.log(result)
+
+        const nums = [3,4,5]
+        function add(){
+            return [...nums].reduce((acc,curr)=> acc + curr)
+        }
+        console.log(add())
 
     </script>
 </body>

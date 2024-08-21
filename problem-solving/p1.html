@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>problem solving 1</title>
+</head>
+<body>
+    <script>
+        // Write a function to reverse a string.
+        const reverseString = (str) =>{
+            return str.split('').reverse().join('')
+        }
+        console.log(reverseString('siam'))
+
+        // Write a function to check if a string is a palindrome.
+        const palidramString = (palidramstr) =>{
+            const reversed =  palidramstr.split('').reverse('').join('');
+            return palidramstr === reversed;
+        }
+        console.log(palidramString('siam'))
+
+        //  Write a function to find the largest number in an array.
+        const largestNumber = (arr) =>{
+            return Math.max(...arr)
+        }
+        console.log(largestNumber([1,2,3,4,5,9]))
+
+        // Write a function to remove duplicates from an array.
+        const removeDuplicate = (duplicate) =>{
+            return [...new Set(duplicate)]
+        }
+        console.log(removeDuplicate([1,2,34,4,5,5]))
+        // Write a function to flatten a nested array.
+        const nested = (arr) =>{
+            return arr.flat(Infinity)
+        }
+        console.log(nested([1,[2],[3]]))
+    </script>
+</body>
+</html>

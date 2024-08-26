@@ -1,4 +1,7 @@
-const products = [
+import {addToCart} from './data/cart.js'
+import {cart} from './data/cart.js'
+
+export const products = [
     {
         id: 11,
         image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
